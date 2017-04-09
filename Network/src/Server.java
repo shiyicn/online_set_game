@@ -112,7 +112,7 @@ public class Server {
      * @param values : cards' values
      * @return : legal set or not
      */
-    static boolean readCardSet(String[] values){
+    static boolean readCardSet(ArrayList<String> values){
         for (String value : values) {
             System.out.println("verify : " + value);
             if (handledCards.contains(Integer.parseInt(value))) {
@@ -122,7 +122,7 @@ public class Server {
         return true;
     }
 
-    static void addSet(String[] values) {
+    static void addSet(ArrayList<String> values) {
         for (String value : values) {
             handledCards.add(Integer.parseInt(value));
         }
@@ -165,6 +165,7 @@ public class Server {
             /** client that connects to server socket */
             final Socket s = acceptConnection(server);
 
+            System.out.println("Established a connection with socket : ");
             System.out.println(s.toString());
 
             /** establish input and output stream for
@@ -211,19 +212,15 @@ public class Server {
                                      * other players
                                      */
                                     String info = sc.next();
-                                    System.out.println("SET DELETION REQUEST : " + info);
+                                    System.out.println("SET DELETION REQUEST : " + info + " --- by user : " + my_login);
                                     /** we enter into critic segment, only one thread can manipulate
                                      * HashSet handledCards.
                                      */
                                     lock.lock();
                                     try {
-                                        System.out.println("begin to verify " + my_login + "'s request.");
-                                        String[] values = new String[3];
-                                        Scanner tmp = new Scanner(info);
-                                        tmp.useDelimiter("-");
-                                        for (int i=0; i<3; i+=1) {
-                                            values[i] = tmp.next();
-                                        }
+                                        System.out.println("Begin to verify " + my_login + "'s request.");
+                                        ArrayList<String> values = SetGameData.stringToValue(sc.next());
+                                        System.out.println("Decoded request : " + values.toString());
                                         if (readCardSet(values)) {
                                             broadcastDeletion(info, my_login);
                                             addSet(values);

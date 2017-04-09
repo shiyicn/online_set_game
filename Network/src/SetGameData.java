@@ -1,11 +1,13 @@
+
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Scanner;
+
 
 public class SetGameData {
 
-    private static List<Card> mCards;
+    private static final String TAG = "DATA_SET_TAG";
+    private static ArrayList<Card> mCards;
     private static Deck deck;
     private static HashMap<Integer, Card> mCardMap;
     private static int NUM_CARDS = Server.CARD_INIT_NUM;
@@ -26,7 +28,7 @@ public class SetGameData {
      * @param position : position to insert
      * @return : cards changed
      */
-    public static final List<Card> addItemToList(Card card, int position) {
+    public static final ArrayList<Card> addItemToList(Card card, int position) {
         mCards.add(position, card);
         mCardMap.put(card.getValue(), card);
         return new ArrayList<>(mCards);
@@ -37,7 +39,7 @@ public class SetGameData {
      * @param position : location of card to delete
      * @return : cards changed
      */
-    public static final List<Card> removeItemFromList(int position) {
+    public static final ArrayList<Card> removeItemFromList(int position) {
         mCardMap.remove(mCards.get(position).getValue());
         mCards.remove(position);
         return new ArrayList<>(mCards);
@@ -59,16 +61,22 @@ public class SetGameData {
      * the cards displayed
      * @return : existence flag
      */
-    public static boolean existenceOfSet() {
-        for (int i=0; i<mCards.size(); i+=1) {
-            for (int j=i+1; j<mCards.size(); j+=1) {
-                for (int k=j+1; k<mCards.size(); k+=1) {
-                    if (Deck.isSet(mCards.get(i), mCards.get(j), mCards.get(k)))
+    public static boolean existenceOfSet(ArrayList<Card> cards) {
+        for (int i=0; i<cards.size(); i+=1) {
+            for (int j=i+1; j<cards.size(); j+=1) {
+                for (int k=j+1; k<cards.size(); k+=1) {
+                    if (Deck.isSet(cards.get(i), cards.get(j), cards.get(k))) {
+                        System.out.println("Find a valid set : { " + i + " " + j + " " + k + " }");
                         return true;
+                    }
                 }
             }
         }
         return false;
+    }
+
+    public static boolean existenceOfSet() {
+        return existenceOfSet(mCards);
     }
 
     /** add several cards from deck
@@ -86,7 +94,7 @@ public class SetGameData {
     /** remove cards from attributed cards
      * @param cardsToRemove : target cards
      */
-    public static void removeCards(List<Card> cardsToRemove) {
+    public static void removeCards(ArrayList<Card> cardsToRemove) {
         for (Card c : cardsToRemove) {
             for (int i=0; i<mCards.size(); i+=1) {
                 if (c.equals(mCards.get(i))) {
