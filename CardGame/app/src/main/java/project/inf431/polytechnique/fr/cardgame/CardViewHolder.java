@@ -32,6 +32,7 @@ public class CardViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public void onClick(View v) {
         int idx = getAdapterPosition();
         Log.v(TAG, "Clicked card idx : " + idx);
+        Log.v(TAG, "Card Info : " + customCardView.getCard().getValue());
         gameActivity.mOnItemClick(idx);
     }
 }

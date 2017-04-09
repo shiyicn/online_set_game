@@ -261,7 +261,7 @@ public class Server {
                                 }
                                 outs = new ConnectionList(my_login, s_out, outs);
                                 print_all("Welcome " + my_login);
-                                /** send initial cards to all terminals*/
+                                /** send initial cards to all terminals */
                                 s_out.println(INIT_SIGN + " "+ SetGameData.cardsToString());
                             } else if (token.equals("KILL")) {
                                 killed = true;

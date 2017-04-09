@@ -13,9 +13,9 @@ import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardViewHolder>{
 
-    public final static String TAG = "CardAdapter TAG";
+    public final static String TAG = "CARD_ADAPTER_TAG";
 
-    private List<Card> cards;
+    private ArrayList<Card> cards;
     private GameActivity gameActivity;
     /** flag to mark selected items */
     private SparseBooleanArray selectedItems;
@@ -58,6 +58,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder>{
         for (int i = selectedItems.size() - 1; i >=0 ; i-=1) {
             items.add(selectedItems.keyAt(i));
         }
+        Log.v(TAG, "Cards selected : " + items.toString());
         return items;
     }
 
@@ -123,7 +124,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder>{
         return cards.get(position);
     }
 
-    public CardAdapter(List<Card> list, GameActivity gameActivity) {
+    public CardAdapter(ArrayList<Card> list, GameActivity gameActivity) {
         this.cards = list;
         selectedItems = new SparseBooleanArray();
         this.gameActivity = gameActivity;

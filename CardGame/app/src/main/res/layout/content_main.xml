@@ -30,8 +30,7 @@
             android:layout_height="match_parent"
             android:ems="10"
             android:layout_marginLeft="20dp"
-            android:inputType="textPersonName"
-            android:text="@string/edit_message" />
+            android:inputType="textPersonName"/>
     </LinearLayout>
 
 

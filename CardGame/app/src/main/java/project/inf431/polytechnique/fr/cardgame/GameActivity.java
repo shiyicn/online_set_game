@@ -4,6 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -73,6 +77,12 @@ public class GameActivity extends AppCompatActivity {
             //initialise data set locally
             SetGameData.init();
             cards = SetGameData.getCards();
+            /** check the existence of set in cards */
+            if (!SetGameData.existenceOfSet(cards)) {
+                mCardAdapter.addCards(SetGameData.getDeck().popCards(
+                        NUM_MAX_CARDS - cards.size()
+                ));
+            }
             isOnline = false;
         } else if (connexion.equals(
                 getString(R.string.online_mode))) {
@@ -123,7 +133,9 @@ public class GameActivity extends AppCompatActivity {
                     } else {
                         /** offline mode, delete directly set cards */
                         mCardAdapter.removeSet(selectedItemPositions);
-                        /** check locally if there exists a set in cards */
+                        /** check locally if there exists a set in cards
+                         * if not, add cards
+                         */
                         if (!SetGameData.existenceOfSet(cards)){
                             mCardAdapter.addCards(
                                     Math.min(
@@ -147,9 +159,48 @@ public class GameActivity extends AppCompatActivity {
         score = 0;
     }
 
-    private boolean isSet(List<Integer> cardSelected){
-        if (cardSelected.size() != 3) {
+    // Add Fragments to Tabs
+    private void setupViewPager(ViewPager viewPager) {
+        Adapter adapter = new Adapter(getSupportFragmentManager());
+        adapter.addFragment(new GameContentFragment(), "GAME");
+        adapter.addFragment(new ScoreContentFragment(), "SCORE");
+        viewPager.setAdapter(adapter);
+    }
 
+    /** Fragment adapter class */
+    static class Adapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public Adapter(FragmentManager manager) {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
+    }
+
+    private boolean isSet(List<Integer> cardSelected){
+
+        Log.v(TAG, cardSelected.toString());
+        if (cardSelected.size() != 3) {
             return false;
         }
 
@@ -160,11 +211,11 @@ public class GameActivity extends AppCompatActivity {
             i += 1;
         }
 
-        ArrayList<Card> cs = SetGameData.getCards();
         return SetGameData.getDeck().isSet(
-                cs.get(items[0]),
-                cs.get(items[1]),
-                cs.get(items[2]));
+                cards.get(items[0]),
+                cards.get(items[1]),
+                cards.get(items[2])
+        );
     }
 
     /** Called when the user taps the start button

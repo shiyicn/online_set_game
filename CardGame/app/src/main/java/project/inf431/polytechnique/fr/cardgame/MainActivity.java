@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     /** Called when the user taps the start button */
     public void startGame(View view) {
         int num = 12;

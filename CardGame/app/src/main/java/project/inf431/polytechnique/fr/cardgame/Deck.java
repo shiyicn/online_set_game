@@ -1,11 +1,14 @@
 package project.inf431.polytechnique.fr.cardgame;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 
 public class Deck {
 
+    private static final String TAG = "DECK_TAG";
     private LinkedList<Card> cards;
     public final static int DECK_SIZE = 81;
 
@@ -32,6 +35,8 @@ public class Deck {
         int[] cA = a.characteristics();
         int[] cB = b.characteristics();
         int[] cC = c.characteristics();
+        Log.v(TAG, "check " + a.toString() + b.toString() + c.toString());
+        Log.v(TAG, arrayToString(cA) + "----" + arrayToString(cB) + "----" + arrayToString(cC));
         for (int i=0; i<cA.length; i+=1) {
             if ((cA[i] + cB[i] + cC[i]) % 3 != 0)
                 return false;
@@ -41,6 +46,15 @@ public class Deck {
 
     public int getSize() {
         return this.cards.size();
+    }
+
+    public static String arrayToString(int[] a) {
+        String res = "{";
+        for (int value : a) {
+            res += "-" + value;
+        }
+        res += "}";
+        return res;
     }
 
 }
