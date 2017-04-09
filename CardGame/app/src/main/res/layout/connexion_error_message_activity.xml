@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/AppTheme.Base"
+    android:weightSum="1">
+
+    <ImageView
+        android:id="@+id/network_error_image"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="220dp"
+        android:src="@drawable/network_error_pic"
+        android:layout_weight="0.03" />
+
+    <TextView
+        android:id="@+id/network_error_text"
+        android:text="@string/text_net_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/start_offline_instead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_offline_instead"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center" />
+
+</LinearLayout>

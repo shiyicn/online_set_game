@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">CardGame</string>
+    <string name="action_settings">Settings</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="text_to_show">Show Info</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="button_start_game">START</string>
+    <string name="choose_offline_instead">OFFLINE MODE</string>
+    <string name="text_net_error">CANNOT CONNECT TO SERVER</string>
+    <string name="login_account">Login : </string>
+    <string name="game_mode">Game Mode</string>
+    <string name="offline_mode">Offline Mode</string>
+    <string name="online_mode">Online Mode</string>
+</resources>
