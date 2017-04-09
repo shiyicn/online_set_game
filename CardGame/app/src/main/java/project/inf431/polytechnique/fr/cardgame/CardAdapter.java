@@ -33,7 +33,12 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder>{
         }
 
         /** mark selected card */
-        getCard(pos).setSelected(selectedItems.get(pos, false));
+        Card c = getCard(pos);
+        if(selectedItems.get(pos, false)) {
+            c.setChosen();
+        } else {
+            c.setInit();
+        }
         notifyItemChanged(pos);
     }
 
@@ -80,7 +85,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder>{
      */
     public void addCards(List<Card> cards) {
         for(Card c : cards) {
-            addCard(c, 0);
+            int position = cards.size() - 1;
+            addCard(c, position);
         }
     }
 
@@ -94,7 +100,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder>{
         } else {
             /** without internet connexion */
             cards.remove(position);
-            //SetGameData.removeItemFromList(position);
         }
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, cards.size());
@@ -151,17 +156,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder>{
     public void onBindViewHolder(final CardViewHolder cardViewHolder, int position) {
         Card c = cards.get(position);
         cardViewHolder.getCustomCardView().setCard(c);
-        View view = cardViewHolder.getCustomCardView();
-        /**
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int idx = cardViewHolder.getAdapterPosition();
-                Log.v(TAG, "Clicked card idx : " + idx);
-                gameActivity.mOnItemClick(idx);
-            }
-        });
-         */
     }
 
     @Override

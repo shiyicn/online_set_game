@@ -8,7 +8,7 @@ public class Card {
     private int filling;
     private int shape;
     private int value; // value = number + 3 * (color + 3 * (filling + 3 * shape))
-    private boolean selected;
+    private int selected;
 
     Card(int value) {
         this.value = value;
@@ -17,7 +17,7 @@ public class Card {
         color = (value/3)%3 + 1;
         filling = (value/9)%3 + 1;
         shape = (value/27)%3 + 1;
-        this.selected = false;
+        this.selected = -2;
     }
 
     // equality test on SetCards
@@ -62,15 +62,31 @@ public class Card {
         return value;
     }
 
-    public boolean isSelected() {
+    public int getSelected() {
         return selected;
     }
 
-    public void setSelected(boolean selected) {
+    public void setSelected(int selected) {
         this.selected = selected;
     }
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public void setChosen() {
+        this.selected = -1;
+    }
+
+    public void setGoodSet() {
+        this.selected = 0;
+    }
+
+    public void setBadSet() {
+        this.selected = 1;
+    }
+
+    public void setInit() {
+        this.selected = -2;
     }
 }

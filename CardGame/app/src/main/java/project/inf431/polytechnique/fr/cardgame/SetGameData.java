@@ -63,11 +63,11 @@ public class SetGameData {
      * the cards displayed
      * @return : existence flag
      */
-    public static boolean existenceOfSet() {
-        for (int i=0; i<mCards.size(); i+=1) {
-            for (int j=i+1; j<mCards.size(); j+=1) {
-                for (int k=j+1; k<mCards.size(); k+=1) {
-                    if (Deck.isSet(mCards.get(i), mCards.get(j), mCards.get(k)))
+    public static boolean existenceOfSet(ArrayList<Card> cards) {
+        for (int i=0; i<cards.size(); i+=1) {
+            for (int j=i+1; j<cards.size(); j+=1) {
+                for (int k=j+1; k<cards.size(); k+=1) {
+                    if (Deck.isSet(cards.get(i), cards.get(j), cards.get(k)))
                         return true;
                 }
             }

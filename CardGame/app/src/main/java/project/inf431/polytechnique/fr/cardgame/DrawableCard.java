@@ -56,6 +56,9 @@ public class DrawableCard extends View{
 
     private Paint mBorder = new Paint(Paint.ANTI_ALIAS_FLAG);
 
+    /** Opaque background setting. */
+    private final Paint background = new Paint(Paint.ANTI_ALIAS_FLAG);
+
     /**
      * The constructor to build a new drawable card
      * @param context: context environment where we draw the view
@@ -119,9 +122,11 @@ public class DrawableCard extends View{
 
         Rect b = getBounds();
 
-        if (this.card.isSelected()) {
+        if (this.card.getSelected() == -1) {
             canvas.drawRect(getBounds(), mBorder);
         }
+
+        drawBackground(canvas);
 
         int alpha = paint.getAlpha();
 
@@ -251,6 +256,23 @@ public class DrawableCard extends View{
      */
     private void drawBackground(Canvas canvas) {
 
+        switch (this.card.getSelected()) {
+            case -2 : return;
+            case -1 : background.setColor(Color.BLUE); break;
+            case 0 : background.setColor(Color.GREEN); break;
+            case 1 : background.setColor(Color.RED); break;
+            default:
+                throw new RuntimeException("not a valid selected flag! ");
+        }
+
+        background.setStyle(Paint.Style.FILL);
+        background.setAlpha(getOpacity());
+        canvas.drawRect(getBounds(), background);
+
+    }
+
+    public int getOpacity() {
+        return 20;
     }
 
     private Rect getBounds() {

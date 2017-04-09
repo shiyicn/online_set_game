@@ -124,7 +124,7 @@ public class GameActivity extends AppCompatActivity {
                         /** offline mode, delete directly set cards */
                         mCardAdapter.removeSet(selectedItemPositions);
                         /** check locally if there exists a set in cards */
-                        if (!SetGameData.existenceOfSet()){
+                        if (!SetGameData.existenceOfSet(cards)){
                             mCardAdapter.addCards(
                                     Math.min(
                                             NUM_MAX_CARDS-cards.size(),
@@ -161,13 +161,10 @@ public class GameActivity extends AppCompatActivity {
         }
 
         ArrayList<Card> cs = SetGameData.getCards();
-        /**
         return SetGameData.getDeck().isSet(
                 cs.get(items[0]),
                 cs.get(items[1]),
                 cs.get(items[2]));
-         */
-        return true;
     }
 
     /** Called when the user taps the start button
@@ -215,19 +212,20 @@ public class GameActivity extends AppCompatActivity {
                                     }
 
                                     if (sign.equals(Server.ADD_SIGN)) {
-                                        cards.addAll(
-                                                SetGameData.stringToCardList(scanner.next())
-                                        );
+                                        final String cardsToAdd = scanner.next();
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                mCardAdapter.addCards(
+                                                        SetGameData.stringToCardList(cardsToAdd)
+                                                );
+                                            }
+                                        });
                                     }
 
                                     if (sign.equals(DELETION_SIGN) || sign.equals(GOOD_SET_SIGN)) {
-                                        Scanner tmp = new Scanner(scanner.next());
-                                        tmp.useDelimiter("-");
-                                        String[] values = new String[3];
-                                        for (int i = 0; i < 3; i += 1) {
-                                            values[i] = tmp.next();
-                                        }
-                                        final String[] set = values;
+                                        ArrayList<String> values = SetGameData.stringToValue(scanner.next());
+                                        final ArrayList<String> set = values;
                                         /** change to UI thread to remove cards*/
                                         runOnUiThread(new Runnable() {
                                             @Override
