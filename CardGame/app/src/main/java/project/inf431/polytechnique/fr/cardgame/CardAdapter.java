@@ -85,7 +85,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder>{
      */
     public void addCards(List<Card> cards) {
         for(Card c : cards) {
-            int position = cards.size() - 1;
+            int position = this.cards.size();
             addCard(c, position);
         }
     }

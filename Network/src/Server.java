@@ -40,6 +40,7 @@ public class Server {
     public static String ADD_SIGN = "ADD";
 
     public static int CARD_INIT_NUM = 12;
+    public static int CARD_MAX_NUM = 15;
 
     static HashSet<Integer> handledCards;
 
@@ -97,6 +98,7 @@ public class Server {
     static ConnectionList outs = null;
     static boolean killed = false;
     public static final int SERVER_PORT = 1344;
+    public static String SERVER_IP;
 
     static void print_all(String message) {
         ConnectionList cl = outs;
@@ -151,13 +153,26 @@ public class Server {
         handledCards = new HashSet<>();
         SetGameData.init();
 
+        /** check if there exists a set in this initial
+         * configuration of cards
+         */
+        if (!SetGameData.existenceOfSet()) {
+            SetGameData.addCards(
+                    Math.min(
+                            CARD_MAX_NUM - SetGameData.getCards().size(),
+                            SetGameData.getDeck().getSize()
+                    )
+            );
+        }
+
         /** create server socket on the port SERVER_PORT*/
         ServerSocket server = createServer(SERVER_PORT);
 
         try {
             InetAddress iAddress = InetAddress.getLocalHost();
-            String client_IP = iAddress.getHostAddress();
-            System.out.println("Current IP address : " + client_IP);
+            String serverIP = iAddress.getHostAddress();
+            System.out.println("Current IP address : " + serverIP);
+            SERVER_IP = serverIP;
         } catch (UnknownHostException e) {}
 
         while (!killed) {
@@ -219,20 +234,22 @@ public class Server {
                                     lock.lock();
                                     try {
                                         System.out.println("Begin to verify " + my_login + "'s request.");
-                                        ArrayList<String> values = SetGameData.stringToValue(sc.next());
+                                        ArrayList<String> values = SetGameData.stringToValue(info);
                                         System.out.println("Decoded request : " + values.toString());
                                         if (readCardSet(values)) {
                                             broadcastDeletion(info, my_login);
                                             addSet(values);
                                         } else {
-                                            s_out.println("TOO LATE!");
+                                            s_out.println("TOO_LATE!");
                                         }
 
                                         /** if there is not set in the cards, add cards until
                                          * deck is empty or till cards size is 15
                                          */
                                         if (!SetGameData.existenceOfSet()) {
-                                            SetGameData.addCards(15 - SetGameData.getCards().size());
+                                            ArrayList<Card> cardsToAdd =
+                                                    SetGameData.addCards(15 - SetGameData.getCards().size());
+                                            print_all(ADD_SIGN + " " + SetGameData.cardsToString(cardsToAdd));
                                         }
                                     }finally {
                                         lock.unlock();
@@ -254,7 +271,15 @@ public class Server {
                                 outs = new ConnectionList(my_login, s_out, outs);
                                 print_all("Welcome " + my_login);
                                 /** send initial cards to all terminals*/
-                                s_out.println(INIT_SIGN + " "+ SetGameData.cardsToString());
+                                /** critic section : we cannot initiate cards for user and
+                                 * delete cards in the same time.
+                                 */
+                                lock.lock();
+                                try {
+                                    s_out.println(INIT_SIGN + " " + SetGameData.cardsToString());
+                                } finally {
+                                    lock.unlock();
+                                }
                             } else if (token.equals("KILL")) {
                                 killed = true;
                                 throw new RuntimeException("Waiting for next connection to kill");

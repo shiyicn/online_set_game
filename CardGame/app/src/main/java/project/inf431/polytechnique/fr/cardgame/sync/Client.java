@@ -15,7 +15,7 @@ import project.inf431.polytechnique.fr.cardgame.CardAdapter;
 public class Client extends AsyncTask<Void, Void, Void>{
 
     private static String TAG = "Client";
-    private static long MAX_TIME = 1500;
+    private static long MAX_TIME = 100;
 
     private static String LOGIN_SIGN = "LOGIN";
 

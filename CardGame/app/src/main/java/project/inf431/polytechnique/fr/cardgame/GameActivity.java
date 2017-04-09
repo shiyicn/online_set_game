@@ -17,6 +17,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 
 import project.inf431.polytechnique.fr.cardgame.sync.Client;
 import project.inf431.polytechnique.fr.cardgame.sync.Server;
@@ -25,7 +26,10 @@ import static project.inf431.polytechnique.fr.cardgame.MainActivity.EXTRA_LOGIN;
 
 public class GameActivity extends AppCompatActivity {
 
+    private static final String LATE_SIGN = "TOO_LATE";
+
     public static final String EXTRA_SCORE = "project.inf431.polytechnique.fr.SCORE";
+    private static final String WELCOME_SIGN = "Welcome";
     private RecyclerView cardListView;
 
     public final static int NUM_CARDS = 12;
@@ -33,7 +37,9 @@ public class GameActivity extends AppCompatActivity {
 
     public final static String TAG = "GAME_ACTIVITY_TAG";
 
-    /** card data management */
+    /**
+     * card data management
+     */
     CardAdapter mCardAdapter;
     private ArrayList<Card> cards;
     int num;
@@ -41,21 +47,26 @@ public class GameActivity extends AppCompatActivity {
     public static final String SERVER_IP = "192.168.43.11";
     public static final int SERVER_PORT = 1344;
 
-    /** command signs for the communication between server
+    /**
+     * command signs for the communication between server
      * and clients
      */
     public static String DELETION_SIGN = Server.DELETION_SIGN;
     public static String GOOD_SET_SIGN = Server.GOOD_SET_SIGN;
     public static String SET_REQUEST_SIGN = Server.SET_SIGN;
 
-    /** client and login account option */
+    /**
+     * client and login account option
+     */
     private String my_login;
     private Client client;
     private String connexion;
     private boolean isOnline;
     static PrintWriter server_out = null;
 
-    /** player's score */
+    /**
+     * player's score
+     */
     private int score;
 
     @Override
@@ -79,7 +90,7 @@ public class GameActivity extends AppCompatActivity {
                 Log.v(TAG, "Add several cards to build set.");
                 mCardAdapter.addCards(
                         Math.min(
-                                NUM_MAX_CARDS-cards.size(),
+                                NUM_MAX_CARDS - cards.size(),
                                 SetGameData.getDeck().getSize()
                         )
                 );
@@ -130,7 +141,7 @@ public class GameActivity extends AppCompatActivity {
                 List<Integer> selectedItemPositions = mCardAdapter.getSelectedItems();
                 String info = mCardAdapter.positionsToString(selectedItemPositions);
                 if (isSet(selectedItemPositions)) {
-                    if (isOnline){
+                    if (isOnline) {
                         /** online mode, send message to server */
                         Log.v(TAG, SET_REQUEST_SIGN + " " + info);
                         sendMessage(SET_REQUEST_SIGN + " " + info);
@@ -139,10 +150,10 @@ public class GameActivity extends AppCompatActivity {
                         mCardAdapter.removeSet(selectedItemPositions);
                         score += 1;
                         /** check locally if there exists a set in cards */
-                        if (!SetGameData.existenceOfSet(cards)){
+                        if (!SetGameData.existenceOfSet(cards)) {
                             mCardAdapter.addCards(
                                     Math.min(
-                                            NUM_MAX_CARDS-cards.size(),
+                                            NUM_MAX_CARDS - cards.size(),
                                             SetGameData.getDeck().getSize()
                                     )
                             );
@@ -158,7 +169,7 @@ public class GameActivity extends AppCompatActivity {
         score = 0;
     }
 
-    private boolean isSet(List<Integer> cardSelected){
+    private boolean isSet(List<Integer> cardSelected) {
         if (cardSelected.size() != 3) {
 
             return false;
@@ -177,7 +188,8 @@ public class GameActivity extends AppCompatActivity {
                 cards.get(items[2]));
     }
 
-    /** Called when the user taps the start button
+    /**
+     * Called when the user taps the start button
      * to build a connexion between local terminal and
      * centre server
      */
@@ -189,6 +201,15 @@ public class GameActivity extends AppCompatActivity {
              */
             client = new Client(SERVER_IP, SERVER_PORT, login, mCardAdapter);
             client.execute();
+
+            /** wait until client finishes its background job*/
+            try {
+                client.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
 
             if (!client.getFlag()) {
                 /** failed to connect to server */
@@ -219,9 +240,7 @@ public class GameActivity extends AppCompatActivity {
                                     if (sign.equals(Server.INIT_SIGN)) {
                                         Log.v(TAG, "initialise from server!");
                                         cards = SetGameData.stringToCardList(scanner.next());
-                                    }
-
-                                    if (sign.equals(Server.ADD_SIGN)) {
+                                    } else if (sign.equals(Server.ADD_SIGN)) {
                                         final String cardsToAdd = scanner.next();
                                         runOnUiThread(new Runnable() {
                                             @Override
@@ -231,9 +250,7 @@ public class GameActivity extends AppCompatActivity {
                                                 );
                                             }
                                         });
-                                    }
-
-                                    if (sign.equals(DELETION_SIGN) || sign.equals(GOOD_SET_SIGN)) {
+                                    } else if (sign.equals(DELETION_SIGN) || sign.equals(GOOD_SET_SIGN)) {
                                         ArrayList<String> values = SetGameData.stringToValue(scanner.next());
                                         final ArrayList<String> set = values;
                                         /** change to UI thread to remove cards*/
@@ -249,11 +266,24 @@ public class GameActivity extends AppCompatActivity {
                                             /** good set means that player wins a point*/
                                             score += 1;
                                         }
-                                    } else {
+                                    } else if (sign.equals(LATE_SIGN)) {
+                                        Toast.makeText(
+                                                getApplicationContext(),
+                                                "TOO LATE",
+                                                Toast.LENGTH_SHORT
+                                        ).show();
+                                    } else if (sign.equals(WELCOME_SIGN)) {
+                                        String welcome = "A new player " + scanner.next() + " has joined us!";
+                                        Toast.makeText(
+                                                getApplicationContext(),
+                                                welcome,
+                                                Toast.LENGTH_SHORT
+                                        ).show();
+                                        Log.v(TAG, welcome);
+                                    } else
                                         throw new RuntimeException("Unknown command exception");
-                                    }
                                 }
-                            }catch (IOException ie) {
+                            } catch (IOException ie) {
                                 System.out.println("ERROR in reading messages from server !");
                             }
                         }
@@ -265,7 +295,7 @@ public class GameActivity extends AppCompatActivity {
 
             t.start();
 
-        } catch (RuntimeException msg){
+        } catch (RuntimeException msg) {
             String errorMessage = "Error : " + msg;
             Toast.makeText(
                     getApplicationContext(),
@@ -276,7 +306,9 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    /** send message function
+    /**
+     * send message function
+     *
      * @param message : message to send
      */
     public void sendMessage(String message) {
@@ -290,13 +322,14 @@ public class GameActivity extends AppCompatActivity {
         sender.start();
         try {
             sender.join();
-        }catch (InterruptedException ie) {
+        } catch (InterruptedException ie) {
             Log.v(TAG, "send message : " + msg + ". ==> interrupted! ");
         }
     }
 
     /**
      * response function to click action
+     *
      * @param idx : item id in the list viewer
      * @return clicked item
      */
@@ -314,7 +347,9 @@ public class GameActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /** getters and setters to private variables*/
+    /**
+     * getters and setters to private variables
+     */
     public Client getClient() {
         return this.client;
     }

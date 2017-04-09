@@ -50,11 +50,7 @@ public class SetGameData {
      * @return : string chain
      */
     public static String cardsToString() {
-        String res = "";
-        for (int i=0; i<mCards.size(); i+=1) {
-            res += mCards.get(i).toString();
-        }
-        return res;
+        return cardsToString(mCards);
     }
 
     /** check the existence of valid set in
@@ -72,6 +68,7 @@ public class SetGameData {
                 }
             }
         }
+        System.out.println("There is no valid sets in cards! ");
         return false;
     }
 
@@ -82,13 +79,12 @@ public class SetGameData {
     /** add several cards from deck
      * @param num : amount of cards to add
      */
-    public static void addCards(int num) {
-        int sz = Math.min(num, deck.getSize());
-        int position = mCards.size();
-        for (Card c : deck.popCards(sz)) {
-            addItemToList(c, position);
-            position += 1;
+    public static ArrayList<Card> addCards(int num) {
+        ArrayList<Card> cardsToAdd = deck.popCards(num);
+        for (Card c : cardsToAdd) {
+            addItemToList(c, mCards.size());
         }
+        return cardsToAdd;
     }
 
     /** remove cards from attributed cards
@@ -102,6 +98,19 @@ public class SetGameData {
                 }
             }
         }
+    }
+
+    /** Encodes cards list to String
+     * Ex : {card(1), card(2), card(3)} => "-1-2-3"
+     * @param cardsToEncode
+     * @return
+     */
+    public static String cardsToString(ArrayList<Card> cardsToEncode) {
+        String res = "";
+        for (Card c : cardsToEncode) {
+            res = res + "-" + c.getValue();
+        }
+        return res;
     }
 
     /** convert string chain to string set
@@ -129,6 +138,10 @@ public class SetGameData {
                 break;
             }
         }
+    }
+
+    public static Card getItemAtCards(int position) {
+        return mCards.get(position);
     }
 
     /** convert string chain to card set

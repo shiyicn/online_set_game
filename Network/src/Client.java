@@ -62,8 +62,7 @@ public class Client{
                     });
 
                     send.start();
-                }catch (IOException ie) {
-                }
+                }catch (IOException ie) {}
             }
         });
 
