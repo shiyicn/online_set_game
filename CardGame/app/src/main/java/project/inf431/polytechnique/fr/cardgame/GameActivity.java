@@ -21,8 +21,11 @@ import java.util.Scanner;
 import project.inf431.polytechnique.fr.cardgame.sync.Client;
 import project.inf431.polytechnique.fr.cardgame.sync.Server;
 
+import static project.inf431.polytechnique.fr.cardgame.MainActivity.EXTRA_LOGIN;
+
 public class GameActivity extends AppCompatActivity {
 
+    public static final String EXTRA_SCORE = "project.inf431.polytechnique.fr.SCORE";
     private RecyclerView cardListView;
 
     public final static int NUM_CARDS = 12;
@@ -62,7 +65,7 @@ public class GameActivity extends AppCompatActivity {
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
         num = intent.getIntExtra(MainActivity.EXTRA_NUM_CARD, 12);
-        my_login = intent.getStringExtra(MainActivity.EXTRA_LOGIN);
+        my_login = intent.getStringExtra(EXTRA_LOGIN);
         connexion = intent.getStringExtra(MainActivity.EXTRA_CONNEXION_FLAG);
 
 
@@ -116,6 +119,9 @@ public class GameActivity extends AppCompatActivity {
         mCardAdapter = new CardAdapter(cards, this);
         cardListView.setAdapter(mCardAdapter);
 
+        //setup score show panel listener
+        FloatingActionButton showScore = (FloatingActionButton) findViewById(R.id.score_card_fab);
+
         //setup check and delete listener for selected cards
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.delete_card_fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -131,6 +137,7 @@ public class GameActivity extends AppCompatActivity {
                     } else {
                         /** offline mode, delete directly set cards */
                         mCardAdapter.removeSet(selectedItemPositions);
+                        score += 1;
                         /** check locally if there exists a set in cards */
                         if (!SetGameData.existenceOfSet(cards)){
                             mCardAdapter.addCards(
@@ -297,6 +304,14 @@ public class GameActivity extends AppCompatActivity {
         // response to click action on items
         mCardAdapter.toggleSelection(idx);
         return mCardAdapter.getCard(idx);
+    }
+
+    public void showMyScore(View view) {
+        Log.v(TAG, my_login);
+        Intent intent = new Intent(this, ScoreShowActivity.class);
+        intent.putExtra(EXTRA_LOGIN, my_login);
+        intent.putExtra(EXTRA_SCORE, score);
+        startActivity(intent);
     }
 
     /** getters and setters to private variables*/
