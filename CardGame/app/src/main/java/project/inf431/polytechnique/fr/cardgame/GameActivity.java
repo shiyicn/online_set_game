@@ -3,7 +3,6 @@ package project.inf431.polytechnique.fr.cardgame;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -73,6 +72,15 @@ public class GameActivity extends AppCompatActivity {
             //initialise data set locally
             SetGameData.init();
             cards = SetGameData.getCards();
+            if (!SetGameData.existenceOfSet(cards)) {
+                Log.v(TAG, "Add several cards to build set.");
+                mCardAdapter.addCards(
+                        Math.min(
+                                NUM_MAX_CARDS-cards.size(),
+                                SetGameData.getDeck().getSize()
+                        )
+                );
+            }
             isOnline = false;
         } else if (connexion.equals(
                 getString(R.string.online_mode))) {
@@ -139,10 +147,6 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-        TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
-        tabs.addTab(tabs.newTab().setText("GAME"));
-        tabs.addTab(tabs.newTab().setText("SCORE"));
-
         /** initiate score to zero */
         score = 0;
     }
@@ -160,11 +164,10 @@ public class GameActivity extends AppCompatActivity {
             i += 1;
         }
 
-        ArrayList<Card> cs = SetGameData.getCards();
         return SetGameData.getDeck().isSet(
-                cs.get(items[0]),
-                cs.get(items[1]),
-                cs.get(items[2]));
+                cards.get(items[0]),
+                cards.get(items[1]),
+                cards.get(items[2]));
     }
 
     /** Called when the user taps the start button

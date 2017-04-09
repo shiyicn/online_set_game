@@ -1,5 +1,7 @@
 package project.inf431.polytechnique.fr.cardgame;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +11,8 @@ import project.inf431.polytechnique.fr.cardgame.sync.Server;
 
 public class SetGameData {
 
-    private static List<Card> mCards;
+    private static final String TAG = "DATA_SET_TAG";
+    private static ArrayList<Card> mCards;
     private static Deck deck;
     private static HashMap<Integer, Card> mCardMap;
     private static int NUM_CARDS = Server.CARD_INIT_NUM;
@@ -67,12 +70,18 @@ public class SetGameData {
         for (int i=0; i<cards.size(); i+=1) {
             for (int j=i+1; j<cards.size(); j+=1) {
                 for (int k=j+1; k<cards.size(); k+=1) {
-                    if (Deck.isSet(cards.get(i), cards.get(j), cards.get(k)))
+                    if (Deck.isSet(cards.get(i), cards.get(j), cards.get(k))) {
+                        Log.v(TAG, "Find a valid set : { " + i + " " + j + " " + k + " }");
                         return true;
+                    }
                 }
             }
         }
         return false;
+    }
+
+    public static boolean existenceOfSet() {
+        return existenceOfSet(mCards);
     }
 
     /** add several cards from deck
