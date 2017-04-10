@@ -106,10 +106,10 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/polytechnique/polytechnique-logovert.eps
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/polytechnique/polytechnique-logovert.eps
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/lm/ot1lmtt.fd
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/lm/ot1lmtt.fd
-INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/lm/rm-lmtt10.tfm
+INPUT results/login_screen.png
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/lm/rm-lmcsc10.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/polytechnique/polytechnique-logohori.eps
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/polytechnique/polytechnique-logohori.eps
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/polytechnique/polytechnique-logohori.eps
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/polytechnique/polytechnique-logohori.eps
 INPUT set_report.aux

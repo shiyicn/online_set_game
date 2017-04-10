@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1491771028 "set_report.tex" "set_report.pdf" "set_report" 1491771030
+["pdflatex"] 1491772033 "set_report.tex" "set_report.pdf" "set_report" 1491772035
   "/usr/local/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1246382020 928 2dc8d444221b7a635bb58038579b861a ""
@@ -21,7 +21,6 @@
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/lm/rm-lmss12.tfm" 1254269338 11024 7a83ae8920360cd8bd5d0289069119dc ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/lm/rm-lmss17.tfm" 1254269338 11040 703db6eee3cd6f6cd9800b057b63d1d3 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/lm/rm-lmssbx10.tfm" 1254269338 10956 dad25672db463289a56f0700c0488a86 ""
-  "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/lm/rm-lmtt10.tfm" 1254269338 1340 adaa94f9add991a099a6fc98bbb5f02c ""
   "/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty" 1303254447 7140 ece2cc23d9f20e1f53975ac167f42d3e ""
   "/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifvtex.sty" 1335995445 6797 68c89f65e01894df882dd523d3fc0a8f ""
@@ -48,7 +47,6 @@
   "/usr/local/texlive/2015/texmf-dist/tex/latex/lm/omxlmex.fd" 1257296302 566 a94661f7b66063f191960bb7935b6ba2 ""
   "/usr/local/texlive/2015/texmf-dist/tex/latex/lm/ot1lmr.fd" 1257296302 1880 bae7b659316f7344a86218ad38b01d91 ""
   "/usr/local/texlive/2015/texmf-dist/tex/latex/lm/ot1lmss.fd" 1257296302 1655 27274ffd69942383838a2081fd5be3d1 ""
-  "/usr/local/texlive/2015/texmf-dist/tex/latex/lm/ot1lmtt.fd" 1257296302 2712 a8a977c98484ccc2dbc768e5509e3790 ""
   "/usr/local/texlive/2015/texmf-dist/tex/latex/polytechnique/polytechnique-armes.eps" 1483809039 988546 b40345146298bc5aa6c1898f6ab14188 ""
   "/usr/local/texlive/2015/texmf-dist/tex/latex/polytechnique/polytechnique-filetcourtbleu.eps" 1483809039 474166 bcd20001ded89f55f0e7bef422e77ebe ""
   "/usr/local/texlive/2015/texmf-dist/tex/latex/polytechnique/polytechnique-logohori.eps" 1483809039 694562 dd02a4fc8d072934754ed676f09a5aa1 ""
@@ -63,8 +61,9 @@
   "/usr/local/texlive/2015/texmf-dist/web2c/texmf.cnf" 1428852030 31983 18aeec08f48baa3cf3508d538dd5f459 ""
   "/usr/local/texlive/2015/texmf-var/web2c/xetex/xelatex.fmt" 1456563655 3445934 868c9d12aa65f6d824e00b10dcc3ac79 ""
   "/usr/local/texlive/2015/texmf.cnf" 1432479636 577 0d611272082f3cdb8e80e09a3c69cf07 ""
-  "set_report.aux" 1491771028 70 e860e4ab88eb848cc264088fce697af7 ""
-  "set_report.tex" 1491771025 727 d6ba107f05ebaf55378f51bb35676ead ""
+  "results/login_screen.png" 1491769972 545411 0cfa62e3a4f7d7c766e31ee755d0b2ab ""
+  "set_report.aux" 1491772033 224 ca39cb5f897297be5066cb3378767305 ""
+  "set_report.tex" 1491772030 813 04950e9f897ddc2afd5a98aaf706812e ""
   (generated)
   "set_report.pdf"
   "set_report.log"

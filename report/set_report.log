@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.2.27)  9 APR 2017 22:50
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.2.27)  9 APR 2017 23:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -361,30 +361,40 @@ File: polytechnique-logovert.eps Graphic file (type eps)
 <polytechnique-logovert.eps> [1
 
 ]
-LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 23.
+File: results/login_screen.png Graphic file (type QTm)
+ <use  "results/login_screen.png" >
+
+LaTeX Warning: Float too large for page by 381.17735pt on input line 29.
 
 
-(/usr/local/texlive/2015/texmf-dist/tex/latex/lm/ot1lmtt.fd
-File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Invalid UTF-8 byte or sequence at line 27 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 27 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 27 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 27 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 27 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 27 replaced by U+FFFD.
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
 File: polytechnique-logohori.eps Graphic file (type eps)
-
 <polytechnique-logohori.eps> [2
 
-] (./set_report.aux) ) 
+]
+Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
+File: polytechnique-logohori.eps Graphic file (type eps)
+ <polytechnique-logohori.eps> [3]
+(./set_report.aux) ) 
 Here is how much of TeX's memory you used:
- 3498 strings out of 493706
- 49034 string characters out of 6145769
- 128288 words of memory out of 5000000
- 6797 multiletter control sequences out of 15000+600000
- 44485 words of font info for 42 fonts, out of 8000000 for 9000
+ 3467 strings out of 493706
+ 48475 string characters out of 6145769
+ 128296 words of memory out of 5000000
+ 6765 multiletter control sequences out of 15000+600000
+ 44174 words of font info for 41 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 28i,9n,28p,225b,317s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,9n,28p,225b,319s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on set_report.pdf (2 pages).
+Output written on set_report.pdf (3 pages).
