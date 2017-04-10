@@ -29,7 +29,7 @@ public class Client{
                     BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
                     PrintWriter toServer = new PrintWriter(os, true);
 
-                    toServer.println("LOGIN REQUEST");
+                    toServer.println("LOGIN Fake");
 
                     Thread receive = new Thread(new Runnable() {
                         @Override

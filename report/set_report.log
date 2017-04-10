@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.2.27)  9 APR 2017 23:07
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.2.27)  10 APR 2017 23:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -244,22 +244,55 @@ File: ttlps.def 2011/12/15
 \largeurtitreentete=\skip87
 \decalageverticalentete=\skip88
 )
+(/usr/local/texlive/2015/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen126
+\captionmargin@=\dimen127
+\captionwidth=\dimen128
+\caption@tempdima=\dimen129
+\caption@indent=\dimen130
+\caption@parindent=\dimen131
+\caption@hangindent=\dimen132
+)
+\c@ContinuedFloat=\count97
+)
+\c@KVtest=\count98
+\sf@farskip=\skip89
+\sf@captopadj=\dimen133
+\sf@capskip=\skip90
+\sf@nearskip=\skip91
+\c@subfigure=\count99
+\c@subfigure@save=\count100
+\c@lofdepth=\count101
+\c@subtable=\count102
+\c@subtable@save=\count103
+\c@lotdepth=\count104
+\sf@top=\skip92
+\sf@bottom=\skip93
+)
 (./set_report.aux)
 \openout1 = `set_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 19.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -297,61 +330,64 @@ File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Invalid UTF-8 byte or sequence at line 19 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 19 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 19 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 19 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 19 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 19 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 19 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 19 replaced by U+FFFD.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+Invalid UTF-8 byte or sequence at line 20 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 20 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 20 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 20 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 20 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 20 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 20 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 20 replaced by U+FFFD.
 File: polytechnique-armes.eps Graphic file (type eps)
 <polytechnique-armes.eps>
-LaTeX Font Info:    Try loading font information for OT1+lmss on input line 19.
+LaTeX Font Info:    Try loading font information for OT1+lmss on input line 20.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Info: Redefining \\ on input line 19.
-Invalid UTF-8 byte or sequence at line 19 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 19 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 19 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 19 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 19 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 19 replaced by U+FFFD.
+LaTeX Info: Redefining \\ on input line 20.
+Invalid UTF-8 byte or sequence at line 20 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 20 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 20 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 20 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 20 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 20 replaced by U+FFFD.
 File: polytechnique-filetcourtbleu.eps Graphic file (type eps)
 
 <polytechnique-filetcourtbleu.eps>
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 19.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 20.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 19.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 20.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 19.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 20.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 19.
+(Font)              <14.4> on input line 20.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 19.
+(Font)              <10> on input line 20.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 19.
-LaTeX Font Info:    Try loading font information for U+msa on input line 19.
+(Font)              <7> on input line 20.
+LaTeX Font Info:    Try loading font information for U+msa on input line 20.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 19.
+LaTeX Font Info:    Try loading font information for U+msb on input line 20.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -361,40 +397,74 @@ File: polytechnique-logovert.eps Graphic file (type eps)
 <polytechnique-logovert.eps> [1
 
 ]
+LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 24.
+
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/lm/ot1lmtt.fd
+File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+
+ []
+
 File: results/login_screen.png Graphic file (type QTm)
- <use  "results/login_screen.png" >
+<use  "results/login_screen.png" >
+File: results/main_game_screen.png Graphic file (type QTm)
+ <use  "results/main_game_screen.png" >
+File: results/click_items_screen_shot.png Graphic file (type QTm)
 
-LaTeX Warning: Float too large for page by 381.17735pt on input line 29.
+<use  "results/click_items_screen_shot.png" >
+File: results/score_screen_shot.png Graphic file (type QTm)
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
+<use  "results/score_screen_shot.png" >
+Invalid UTF-8 byte or sequence at line 54 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 54 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 54 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 54 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 54 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 54 replaced by U+FFFD.
 File: polytechnique-logohori.eps Graphic file (type eps)
-<polytechnique-logohori.eps> [2
+ <polytechnique-logohori.eps> [2
 
 ]
-Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 61 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 61 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 61 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 61 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 61 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 61 replaced by U+FFFD.
 File: polytechnique-logohori.eps Graphic file (type eps)
- <polytechnique-logohori.eps> [3]
-(./set_report.aux) ) 
-Here is how much of TeX's memory you used:
- 3467 strings out of 493706
- 48475 string characters out of 6145769
- 128296 words of memory out of 5000000
- 6765 multiletter control sequences out of 15000+600000
- 44174 words of font info for 41 fonts, out of 8000000 for 9000
- 1328 hyphenation exceptions out of 8191
- 28i,9n,28p,225b,319s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on set_report.pdf (3 pages).
+<polytechnique-logohori.eps> [3]
+File: results/server_sreen_shot.png Graphic file (type QTm)
+ <use  "results/server_sreen_shot.png" >
+File: results/fake_client_screen_shot.png Graphic file (type QTm)
+
+<use  "results/fake_client_screen_shot.png" >
+Overfull \hbox (20.97873pt too wide) in paragraph at lines 68--74
+ [][][][][] 
+ []
+
+File: results/online_login.png Graphic file (type QTm)
+<use  "results/online_login.png" >
+File: results/online_click_cards.png Graphic file (type QTm)
+ <use  "results/online_click_cards.png" >
+Invalid UTF-8 byte or sequence at line 89 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 89 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 89 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 89 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 89 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 89 replaced by U+FFFD.
+File: polytechnique-logohori.eps Graphic file (type eps)
+
+<polytechnique-logohori.eps> [4] (./set_report.aux) ) 
+Here is how much of TeX's memory you used:
+ 4725 strings out of 493706
+ 71266 string characters out of 6145769
+ 157979 words of memory out of 5000000
+ 8001 multiletter control sequences out of 15000+600000
+ 47432 words of font info for 43 fonts, out of 8000000 for 9000
+ 1328 hyphenation exceptions out of 8191
+ 44i,11n,47p,606b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on set_report.pdf (4 pages).

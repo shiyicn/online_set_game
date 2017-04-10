@@ -248,7 +248,10 @@ public class Server {
                                          */
                                         if (!SetGameData.existenceOfSet()) {
                                             ArrayList<Card> cardsToAdd =
-                                                    SetGameData.addCards(15 - SetGameData.getCards().size());
+                                                    SetGameData.addCards(
+                                                            Math.min(15 - SetGameData.getCards().size(),
+                                                                    SetGameData.getDeck().getSize())
+                                                    );
                                             print_all(ADD_SIGN + " " + SetGameData.cardsToString(cardsToAdd));
                                         }
                                     }finally {
